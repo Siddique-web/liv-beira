@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LIV Beira | Restaurante, Bar e Noites ao Vivo na Beira</title>
+<meta name="description" content="LIV Beira, Bacia 1, em frente à Casa das Frutas. Buffet de família aos domingos, kizomba às quintas, feijoada às sextas e noites com DJs e música ao vivo.">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--w:#fff;--off:#faf7f0;--line:#e9e1cc;--gold:#a67c2c;--gold2:#d9bf7e;--ink:#26231f;--mut:#585044;--hd:'Playfair Display',Georgia,serif;--bd:'DM Sans',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--w);color:var(--ink);font:400 17px/1.7 var(--bd);-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+h1,h2,h3{font-family:var(--hd);font-weight:600;line-height:1.12;margin:0}
+h2{font-size:clamp(32px,4.6vw,50px)}h3{font-size:25px}p{margin:0}a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:100px 0}.alt{background:var(--off)}
+.eyebrow{font:600 13px var(--bd);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.lead{color:var(--mut);max-width:60ch;margin-top:16px;font-size:18px}
+.btn{display:inline-block;padding:14px 28px;border:1.5px solid var(--gold);color:var(--gold);text-decoration:none;font:600 15px var(--bd);letter-spacing:.05em;cursor:pointer;background:transparent;transition:.3s}
+.btn:hover{background:var(--gold);color:#fff}
+.btn.g{background:linear-gradient(135deg,#c9a24d,#a67c2c 55%,#d6b866);color:#fff;border-color:transparent}.btn.g:hover{filter:brightness(1.08)}
+#splash{position:fixed;inset:0;z-index:100;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity 1s ease,visibility 1s}
+#splash.out{opacity:0;visibility:hidden}
+#splash img{width:min(300px,62vw);opacity:0;transform:scale(.94);animation:in 1.4s .2s ease forwards}
+#splash span{font:500 12px var(--bd);letter-spacing:.4em;text-transform:uppercase;color:var(--mut);opacity:0;animation:in 1.2s .9s ease forwards}
+#splash i{display:block;width:0;height:1px;background:var(--gold);animation:bar 2.6s .2s ease forwards}
+@keyframes in{to{opacity:1;transform:none}}@keyframes bar{to{width:140px}}
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s cubic-bezier(.22,.7,.2,1),transform 1.1s cubic-bezier(.22,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+.nav .lg img{height:40px;width:auto}
+nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--mut)}nav a:hover{color:var(--gold)}
+.nav .btn{padding:11px 22px}
+.burger{display:none;width:44px;height:44px;border:1.5px solid var(--gold2);background:#fff;cursor:pointer;padding:0;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:11px;width:20px;height:2px;background:var(--gold);content:"";transition:.3s}
+.burger span{top:20px}.burger span::before{top:-7px;left:0}.burger span::after{top:7px;left:0}
+.burger[aria-expanded=true] span{background:transparent}.burger[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}.burger[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+@media(max-width:900px){.burger{display:block}.nav .btn{display:none}nav{position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .4s}nav.open{max-height:420px}nav ul{flex-direction:column;gap:0;padding:8px 24px 20px}nav li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}}
+.hero{padding-top:74px;background:linear-gradient(180deg,#fff,var(--off))}
+.slides{position:relative;min-height:max(640px,calc(100vh - 74px))}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
+.slide.on{opacity:1;visibility:visible}
+.slide h1{font-size:clamp(40px,5.8vw,78px)}
+.tag{display:flex;align-items:center;gap:14px;color:var(--gold);font:600 13px var(--bd);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.tag::before{content:"";width:44px;height:1.5px;background:var(--gold)}
+.slide .d{margin:22px 0 32px;color:var(--mut);max-width:48ch;font-size:19px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.poster{justify-self:center;height:min(72vh,640px);aspect-ratio:4/5;background:#fff;padding:10px;border:1px solid var(--gold2);box-shadow:0 34px 60px -30px rgba(120,90,30,.5)}
+.poster img{width:100%;height:100%;object-fit:contain}
+.ctl{position:absolute;bottom:24px;left:0;right:0;display:flex;align-items:center;gap:14px}
+.dots{display:flex;gap:10px}.dots button{width:36px;height:4px;border:0;background:var(--line);padding:0;cursor:pointer}.dots button.on{background:var(--gold)}
+.arr{width:42px;height:42px;border:1.5px solid var(--gold2);background:#fff;color:var(--gold);cursor:pointer;font-size:18px}.arr:hover{background:var(--gold);color:#fff}
+@media(max-width:900px){.slides{min-height:0}.slide{grid-template-columns:1fr;gap:22px;padding:26px 0 96px;align-content:start}.slide.on{position:relative}.slide .poster{order:-1;height:auto;width:min(80%,360px)}}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:52px}
+.card{background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.card .im{overflow:hidden;flex:1;min-height:260px}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.card:hover .im img{transform:scale(1.05)}
+.card .tx{padding:24px 26px 28px;border-top:2px solid var(--gold2)}
+.card p{color:var(--mut);margin-top:8px;font-size:16px}
+.c4{grid-column:span 4}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.food{flex-direction:row}.food .tx{flex:1;border-top:0;border-right:2px solid var(--gold2);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;padding:36px}
+.food .ps{flex:2;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px;background:var(--off)}
+.food .ps img{width:100%;aspect-ratio:4/5;object-fit:contain;background:#fff;padding:4px;border:1px solid var(--line)}
+@media(max-width:900px){.c4,.c8{grid-column:span 12}.food{flex-direction:column}.food .tx{border-right:0;border-bottom:2px solid var(--gold2)}}
+.promo{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.pb{padding:38px 32px;border:1px solid var(--gold2);background:#fff;display:flex;flex-direction:column}
+.pb.big{background:linear-gradient(145deg,#fffdf7,#f6edd5);border-color:var(--gold)}
+.pb .k{font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.price{font:600 50px var(--hd);color:var(--gold);line-height:1.1}.price small{font:500 14px var(--bd);color:var(--mut);margin-left:6px}
+.pb ul{padding:0;margin:18px 0 26px;list-style:none;color:var(--mut);flex:1}.pb li{padding:9px 0;border-bottom:1px solid var(--line)}
+.pb .btn{align-self:flex-start}
+@media(max-width:900px){.promo{grid-template-columns:1fr}}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;margin-top:48px}
+.ev{background:#fff;border:1px solid var(--line);position:relative}
+.ev .im{padding:10px;aspect-ratio:4/5;background:var(--off)}.ev .im img{width:100%;height:100%;object-fit:contain}
+.ev .tx{padding:18px 20px 22px}.ev .day{font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ev b{display:block;font:600 23px var(--hd);margin:4px 0}.ev .tx>span:last-child{color:var(--mut);font-size:15px}
+.badge{position:absolute;top:18px;left:18px;z-index:2;background:var(--gold);color:#fff;font:700 12px var(--bd);letter-spacing:.14em;padding:5px 12px;text-transform:uppercase;display:none}
+.ev.hoje{border-color:var(--gold);box-shadow:0 20px 40px -24px rgba(166,124,44,.6)}.ev.hoje .badge{display:block}
+.sub{margin:72px 0 0;font-size:30px}
+.past{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin-top:26px}
+.past figure{margin:0;background:#fff;border:1px solid var(--line);padding:8px}
+.past img{width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--off)}
+.past figcaption{font-size:13px;color:var(--mut);padding:8px 2px 2px;line-height:1.35}.past figcaption b{display:block;color:var(--ink);font-weight:600}
+.mom{columns:4 220px;column-gap:16px;margin-top:48px}
+.mom img{width:100%;margin-bottom:16px;break-inside:avoid;border:1px solid var(--line)}
+[data-zoom]{cursor:zoom-in}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(255,255,255,.97);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-height:92vh;max-width:94vw;object-fit:contain;box-shadow:0 30px 80px -30px rgba(0,0,0,.35)}
+.cta{text-align:center}.cta h2{max-width:17ch;margin:0 auto}.cta .lead{margin-left:auto;margin-right:auto}
+footer{background:var(--off);border-top:1px solid var(--gold2);padding:76px 0 40px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:36px}
+footer img{height:46px;width:auto;margin-bottom:14px}
+footer h4{font:600 20px var(--hd);margin:0 0 12px;color:var(--gold)}
+footer p,footer a{color:var(--mut);font-size:15.5px;text-decoration:none;display:block;margin-bottom:6px}footer a:hover{color:var(--gold)}
+.cp{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mut)}
+@media(max-width:900px){.fg{grid-template-columns:1fr 1fr}section{padding:70px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01s!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body class="lock">
+<div id="splash" aria-hidden="true"><img src="images/logo.png" alt=""><i></i><span>Beira &bull; Moçambique</span></div>
+<noscript><style>#splash{display:none}.lock{overflow:auto}</style></noscript>
+<div id="lb" role="dialog" aria-label="Imagem ampliada"><img alt=""></div>
+
+<header><div class="wrap nav"><a class="lg" href="#topo" aria-label="LIV Beira, início"><img src="images/logo.png" alt="LIV Beira"></a>
+<nav id="menu" aria-label="Principal"><ul><li><a href="#experiencias">Experiências</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
+<a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar mesa</a>
+<button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button></div></header>
+
+<main id="topo">
+<div class="hero"><div class="wrap"><div class="slides" id="slides" aria-roledescription="carrossel">
+<div class="slide on"><div><div class="tag">Domingo &bull; 12h</div><h1>Domingo é dia de mesa cheia e família reunida</h1><p class="d">Buffet de família com karaoke e música ao vivo. Os pequenos entram no parquinho sem pagar, e há pizza e bebida gelada em promoção.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero reservar mesa para o Domingo Buffet.">Reservar para domingo</a><a class="btn" href="#promocoes">Ver preços</a></div></div><div class="poster"><img src="images/buffet-4out.jpg" alt="Cartaz Domingo Buffet com karaoke e música ao vivo"></div></div>
+<div class="slide"><div><div class="tag">Quinta &bull; a partir das 18h</div><h1>Quinta de Kizomba, o after work da Beira</h1><p class="d">Dança ao vivo, DJ e promoções que pedem brinde: compre 4 cervejas e ganhe a quinta, caipirinha com 10% de desconto.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero reservar mesa para a Quinta de Kizomba.">Reservar mesa</a><a class="btn" href="#agenda">Ver agenda</a></div></div><div class="poster"><img src="images/quinta-kizomba.jpg" alt="Cartaz Quinta de Kizomba After Work"></div></div>
+<div class="slide"><div><div class="tag">Sextas &bull; Feijoada</div><h1>Feijoada com todos, a 450 MT</h1><p class="d">Feijoada com chouriço e legumes, arroz branco e couve refogada. Oferecemos uma água para acompanhar.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero reservar para a Feijoada de sexta.">Reservar a minha</a><a class="btn" href="#promocoes">Ver ofertas</a></div></div><div class="poster"><img src="images/feijoada.jpg" alt="Cartaz Feijoada de sexta-feira"></div></div>
+<div class="slide"><div><div class="tag">Sexta de Luxo &bull; 18h</div><h1>A noite começa cedo, com DJs convidados</h1><p class="d">Lil Cua, Telo e Edwin nas pick-ups para abrir o fim de semana com estilo e boa companhia.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero reservar mesa para a Sexta de Luxo.">Reservar mesa</a><a class="btn" href="#momentos">Ver momentos</a></div></div><div class="poster"><img src="images/sexta-luxo.jpg" alt="Cartaz Sexta de Luxo com DJs convidados"></div></div>
+<div class="slide"><div><div class="tag">Concertos internacionais</div><h1>Paige, a Queen of Amapiano, no palco do LIV</h1><p class="d">Grandes nomes a poucos metros de si. A próxima noite já está a ser preparada: fale connosco e garanta a melhor mesa.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero ser avisado dos próximos concertos do LIV Beira.">Quero ser avisado</a><a class="btn" href="#experiencias">Conhecer o espaço</a></div></div><div class="poster"><img src="images/paige.jpg" alt="Cartaz do concerto de Paige"></div></div>
+<div class="ctl"><button class="arr" id="pv" aria-label="Anterior">&#8592;</button><div class="dots" id="dots"></div><button class="arr" id="nx" aria-label="Seguinte">&#8594;</button></div>
+</div></div></div>
+
+<section id="experiencias"><div class="wrap"><span class="eyebrow rv">Experiências</span><h2 class="rv">Cinco razões para voltar ao LIV</h2><p class="lead rv">O ponto de encontro mais exclusivo da Beira: do almoço de domingo à última música da noite.</p>
+<div class="grid">
+<article class="card c8 rv"><div class="im"><img src="images/foto-guitarra.jpg" alt="Guitarrista em concerto no LIV Beira" style="object-position:50% 30%"></div><div class="tx"><h3>Shows ao vivo</h3><p>Guitarras, vozes e uma plateia que canta cada refrão. Sinta a energia do palco de perto, de copo na mão.</p></div></article>
+<article class="card c4 rv" style="--d:.12s"><div class="im"><img src="images/dj.jpg" alt="DJ em atuação no LIV Beira"></div><div class="tx"><h3>DJs residentes e convidados</h3><p>Batidas de amapiano, house e afro que só param quando a pista quer.</p></div></article>
+<article class="card c4 rv"><div class="im"><img src="images/foto-publico.jpg" alt="Público a filmar um espetáculo no LIV Beira"></div><div class="tx"><h3>Noites de karaoke</h3><p>Pegue no microfone ao domingo e mostre a sua voz. Rir também faz parte da festa.</p></div></article>
+<article class="card c8 rv" style="--d:.12s"><div class="im"><img src="images/lounge.jpg" alt="Lounges e deck do LIV Beira" style="object-position:50% 55%"></div><div class="tx"><h3>Um espaço pensado ao detalhe</h3><p>Lounges confortáveis, relvado, luz quente e zonas VIP. Luxo que o faz sentir em casa.</p></div></article>
+<article class="card c12 food rv"><div class="tx"><span class="eyebrow" style="margin:0">Gastronomia</span><h3>Sabores que se partilham</h3><p>Pratos do dia às quintas, feijoada às sextas e buffet de família aos domingos. Pizza e bebida gelada sempre em promoção.</p><a class="btn" style="margin-top:14px" href="#agenda">Ver a semana</a></div>
+<div class="ps"><img data-zoom src="images/pratos-dia.jpg" alt="Pratos do dia de quinta-feira"><img data-zoom src="images/feijoada.jpg" alt="Feijoada de sexta-feira"><img data-zoom src="images/buffet-27set.jpg" alt="Domingo Buffet de Família"></div></article>
+</div></div></section>
+
+<section id="promocoes" class="alt"><div class="wrap"><span class="eyebrow rv">Promoções</span><h2 class="rv">Ofertas que pedem mesa já</h2><p class="lead rv">Reserve com antecedência. As melhores mesas esgotam primeiro.</p>
+<div class="promo">
+<div class="pb big rv"><div class="k">Domingos &bull; 12h</div><h3>Domingo Buffet</h3><div class="price" style="margin-top:14px">600 MT<small>adultos</small></div><div class="price" style="font-size:34px">450 MT<small>crianças até 12 anos</small></div><ul><li>Karaoke e música ao vivo</li><li>Crianças com acesso grátis ao parquinho</li><li>Pizza e bebida gelada em promoção</li></ul><a class="btn g" href="#" data-wa="Olá! Quero reservar mesa para o Domingo Buffet.">Reservar mesa</a></div>
+<div class="pb rv" style="--d:.12s"><div class="k">Quintas &bull; 18h</div><h3>Quinta de Kizomba</h3><ul><li>Compre 4 cervejas e ganhe 1 grátis</li><li>Caipirinha com 10% de desconto</li><li>20% de desconto em qualquer pizza grande</li></ul><a class="btn" href="#" data-wa="Olá! Quero reservar para a Quinta de Kizomba.">Reservar mesa</a></div>
+<div class="pb rv" style="--d:.24s"><div class="k">Quintas e sextas</div><h3>Pratos do dia e Feijoada</h3><div class="price" style="margin-top:14px">450 MT<small>com oferta de 1 água</small></div><ul><li>Quinta, 12h às 15h: frango à zambeziano com arroz ou carapau grelhado com xima</li><li>Sexta: feijoada com chouriço e legumes</li></ul><a class="btn" href="#" data-wa="Olá! Quero reservar almoço no LIV Beira.">Reservar almoço</a></div>
+</div></div></section>
+
+<section id="agenda"><div class="wrap"><span class="eyebrow rv">Agenda</span><h2 class="rv">A semana no LIV</h2><p class="lead rv">Programação que se repete e noites que marcaram a Beira. Cada nova data é anunciada primeiro no nosso WhatsApp.</p>
+<div class="ag">
+<div class="ev rv" data-dow="4"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/pratos-dia.jpg" alt="Pratos do dia"></div><div class="tx"><span class="day">Quinta &bull; 12h às 15h</span><b>Pratos do Dia</b><span>450 MT com oferta de 1 água</span></div></div>
+<div class="ev rv" data-dow="4" style="--d:.1s"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/quinta-kizomba.jpg" alt="Quinta de Kizomba After Work"></div><div class="tx"><span class="day">Quinta &bull; 18h</span><b>Quinta de Kizomba</b><span>DJ Telo No Beatz e Atelier da Dança</span></div></div>
+<div class="ev rv" data-dow="5" style="--d:.2s"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/feijoada.jpg" alt="Feijoada com todos"></div><div class="tx"><span class="day">Sexta</span><b>Feijoada com Todos</b><span>450 MT com oferta de 1 água</span></div></div>
+<div class="ev rv" data-dow="0" style="--d:.3s"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/buffet-4out.jpg" alt="Domingo Buffet 4 de outubro"></div><div class="tx"><span class="day">Domingo 4 de outubro &bull; 12h</span><b>Domingo Buffet</b><span>Edmilson EAC ao vivo e DJ JP</span></div></div>
+</div>
+<h3 class="sub rv">Noites que marcaram o LIV</h3>
+<div class="past rv">
+<figure><img data-zoom src="images/sexta-luxo.jpg" alt="Sexta de Luxo"><figcaption><b>Sexta de Luxo</b>2 de outubro</figcaption></figure>
+<figure><img data-zoom src="images/noite-kizomba.jpg" alt="Noite de Kizomba"><figcaption><b>Noite de Kizomba</b>24 de setembro</figcaption></figure>
+<figure><img data-zoom src="images/buffet-27set.jpg" alt="Buffet de Família 27 de setembro"><figcaption><b>Buffet de Família</b>27 de setembro</figcaption></figure>
+<figure><img data-zoom src="images/buffet-ago.jpg" alt="Domingo Buffet 2 de agosto"><figcaption><b>Domingo Buffet</b>2 de agosto</figcaption></figure>
+<figure><img data-zoom src="images/paige.jpg" alt="Paige in Concert"><figcaption><b>Paige in Concert</b>4 de julho</figcaption></figure>
+<figure><img data-zoom src="images/vinhos.jpg" alt="Prova de Vinhos"><figcaption><b>Prova de Vinhos</b>30 de abril</figcaption></figure>
+<figure><img data-zoom src="images/sunset.jpg" alt="Sunset LIV Experience"><figcaption><b>Sunset LIV</b>12 de abril</figcaption></figure>
+<figure><img data-zoom src="images/twenty.jpg" alt="Twenty Fingers"><figcaption><b>Twenty Fingers</b>7 de março</figcaption></figure>
+<figure><img data-zoom src="images/ladies.jpg" alt="Ladies Night"><figcaption><b>Ladies Night</b>1 de março</figcaption></figure>
+</div></div></section>
+
+<section id="momentos" class="alt"><div class="wrap"><span class="eyebrow rv">Momentos</span><h2 class="rv">Onde os melhores momentos acontecem</h2><p class="lead rv">Sorrisos, brindes à amizade e memórias que ficam. Reveja a nossa última vibe e marque quem estava consigo.</p>
+<div class="mom">
+<img data-zoom class="rv" src="images/foto-amigas.jpg" alt="Amigas a posar no LIV Beira"><img data-zoom class="rv" src="images/foto-guitarra.jpg" alt="Guitarrista em palco"><img data-zoom class="rv" src="images/foto-brinde.jpg" alt="Amigas a brindar com champanhe"><img data-zoom class="rv" src="images/foto-mulheres.jpg" alt="Duas amigas abraçadas"><img data-zoom class="rv" src="images/foto-publico.jpg" alt="Público junto ao palco"><img data-zoom class="rv" src="images/foto-gin.jpg" alt="Gins tónicos na mesa do LIV"><img data-zoom class="rv" src="images/foto-guitarra-pb.jpg" alt="Guitarrista em preto e branco"><img data-zoom class="rv" src="images/foto-casal.jpg" alt="Casal à entrada do LIV"><img data-zoom class="rv" src="images/foto-aceno.jpg" alt="Convidada a acenar com flores">
+</div></div></section>
+
+<section class="cta"><div class="wrap"><span class="eyebrow rv">Reservas</span><h2 class="rv">A sua mesa está à espera</h2><p class="lead rv">Viva momentos inesquecíveis num espaço feito para si e para quem mais gosta. Reserve agora e chegue com a mesa pronta.</p>
+<div class="row rv" style="justify-content:center;margin-top:34px"><a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar por WhatsApp</a><a class="btn" href="tel:+258878886035">Ligar +258 87 888 6035</a></div></div></section>
+</main>
+
+<footer id="contacto"><div class="wrap"><div class="fg">
+<div><img src="images/logo.png" alt="LIV Beira"><p>Restaurante, bar e entretenimento. O ponto de encontro mais exclusivo da Beira.</p></div>
+<div><h4>Onde estamos</h4><p>Bacia 1, em frente à Casa das Frutas<br>Beira, Sofala, Moçambique</p></div>
+<div><h4>Reservas</h4><a href="tel:+258878886035">+258 87 888 6035</a><a href="tel:+258841086034">+258 84 108 6034</a><a href="tel:+258868190000">+258 86 819 0000</a></div>
+<div id="soc"><h4>Siga-nos</h4></div>
+<div><h4>Programação</h4><p>Quinta: pratos do dia 12h às 15h e Kizomba às 18h<br>Sexta: feijoada e Sexta de Luxo<br>Domingo: buffet a partir das 12h</p></div>
+</div><div class="cp">Produção: Sílvio Kintas &bull; Apoios: Beira Online, Chiveve Travel, M-Ticket e CDM &bull; &copy; LIV Beira</div></div></footer>
+
+<script>
+const WA='258878886035';
+/* REDES SOCIAIS: cole aqui os links; os vazios nao aparecem */
+const SOCIAL={Instagram:'',Facebook:'',TikTok:''};
+{const s=document.getElementById('soc');let n=0;for(const[k,v]of Object.entries(SOCIAL))if(v){const a=document.createElement('a');a.href=v;a.textContent=k;a.target='_blank';a.rel='noopener';s.appendChild(a);n++}if(!n)s.remove()}
+document.querySelectorAll('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(a.dataset.wa);a.target='_blank';a.rel='noopener'});
+const dw=new Date().getDay();document.querySelectorAll('.ev[data-dow]').forEach(e=>e.classList.toggle('hoje',+e.dataset.dow===dw));
+const sp=document.getElementById('splash');
+setTimeout(()=>{sp.classList.add('out');document.body.classList.remove('lock');setTimeout(()=>sp.remove(),1100);start()},3000);
+function start(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el))}
+const S=[...document.querySelectorAll('.slide')],D=document.getElementById('dots');let k=0,t;
+S.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));b.onclick=()=>go(n,1);D.appendChild(b)});
+function go(n,u){k=(n+S.length)%S.length;S.forEach((s,i)=>s.classList.toggle('on',i==k));[...D.children].forEach((b,i)=>b.classList.toggle('on',i==k));if(u)run()}
+function run(){clearInterval(t);t=setInterval(()=>go(k+1),7500)}
+pv.onclick=()=>go(k-1,1);nx.onclick=()=>go(k+1,1);
+const sl=document.getElementById('slides');sl.onmouseenter=()=>clearInterval(t);sl.onmouseleave=run;
+go(0);setTimeout(run,3000);
+const bg=document.getElementById('bg'),mn=document.getElementById('menu');
+bg.onclick=()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{mn.classList.remove('open');bg.setAttribute('aria-expanded',false)});
+const lb=document.getElementById('lb'),li=lb.querySelector('img');
+document.querySelectorAll('[data-zoom]').forEach(i=>i.onclick=()=>{li.src=i.src;li.alt=i.alt;lb.classList.add('on')});
+lb.onclick=()=>lb.classList.remove('on');addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+</script></body></html>

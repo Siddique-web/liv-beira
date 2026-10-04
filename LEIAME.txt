@@ -1,0 +1,6 @@
+LIV Beira - site estatico (HTML/CSS/JS, sem dependencias)
+1. Abra index.html no navegador, ou envie toda a pasta para o alojamento.
+2. Trocar cartazes: substitua os ficheiros em images/ mantendo o nome.
+3. Numero de WhatsApp: procure  const WA='258878886035'  no final do index.html.
+4. Redes sociais: no fim do index.html, preencha SOCIAL={Instagram:'link',...}.
+5. Favicon: favicon.ico, favicon-32.png, apple-touch-icon.png.
