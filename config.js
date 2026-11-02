@@ -43,8 +43,8 @@ window.LIV_CONFIG = {
     palco: {
       name: 'Palco',
       label: 'Área de palco',
-      img: 'images/espaco-palco.jpg',
-      gallery: ['images/foto-guitarra.jpg', 'images/dj.jpg', 'images/foto-publico.jpg'],
+      img: 'images/palco-estrutura.jpg',
+      gallery: ['images/espaco-palco.jpg', 'images/palco-mesas.jpg', 'images/palco-sofas.jpg'],
       tagline: 'Música ao vivo, DJs e a energia da pista.',
       desc: 'O coração das noites do LIV. Mesas altas e sofás junto ao palco, com a melhor vista para os shows, DJs e concertos.',
       offers: ['Shows e concertos ao vivo', 'DJs residentes e convidados', 'Mesas altas e sofás junto ao palco', 'Karaoke aos domingos', 'Serviço de garrafa à mesa'],
@@ -120,8 +120,8 @@ window.LIV_CONFIG = {
     lounge: {
       name: 'Lounge',
       label: 'Sofás e zonas VIP',
-      img: 'images/espaco-lounge.jpg',
-      gallery: ['images/lounge.jpg', 'images/foto-mulheres.jpg', 'images/foto-casal.jpg'],
+      img: 'images/lounge-vip.jpg',
+      gallery: ['images/espaco-lounge.jpg', 'images/lounge-corona.jpg', 'images/lounge-poltronas.jpg'],
       tagline: 'Sofás, conforto e serviço à mesa.',
       desc: 'Um ambiente elegante e mais reservado, com sofás Chesterfield e zonas VIP. Ideal para conversar, brindar e celebrar com calma.',
       offers: ['Sofás Chesterfield e mesas reservadas', 'Zonas VIP', 'Serviço de garrafa à mesa', 'Cocktails e gins', 'Ambiente calmo para conversar'],

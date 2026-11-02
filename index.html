@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LIV Beira | Restaurante, Bar e Noites ao Vivo na Beira</title>
 <meta name="description" content="LIV Beira, Bacia 1, em frente à Casa das Frutas. Buffet de família aos domingos, kizomba às quintas, feijoada às sextas e noites com DJs e música ao vivo.">
+<meta property="og:type" content="website"><meta property="og:title" content="LIV Beira | Restaurante, Bar e Noites ao Vivo"><meta property="og:description" content="Palco, Restaurante e Lounge na Bacia 1, Beira. Veja o espaço, o menu e os preços de cada ambiente."><meta property="og:image" content="https://liv-beira.vercel.app/images/entrada-fachada.jpg"><meta property="og:url" content="https://liv-beira.vercel.app/">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -221,6 +222,19 @@ body.lock #fab,body:has(nav.open) #fab{display:none}
 .toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;font-size:15px;z-index:120;max-width:90vw;text-align:center}
 footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){grid-column:1/-1}}
 .sm{display:inline!important;font-size:13.5px!important}
+
+/* galeria */
+#galeria .gp{margin-top:64px}#galeria .gp:first-of-type{margin-top:52px}
+.gph{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:24px}
+.gph h3{font-size:clamp(28px,3.4vw,40px)}.gph p{color:var(--mut)}
+.gx{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;height:clamp(380px,46vw,560px)}
+.gx figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--line);background:var(--off)}
+.gx figure:first-child{grid-row:1/3}
+.gx img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.gx figure:hover img{transform:scale(1.04)}
+.gx figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;background:linear-gradient(transparent,rgba(30,26,20,.8));color:#fff;font-size:14.5px;line-height:1.35;pointer-events:none}
+.gi{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:22px 0 0}.gi li{border:1px solid var(--gold2);background:var(--off);padding:9px 15px;font-size:14.5px}
+@media(max-width:900px){.gph{grid-template-columns:1fr;gap:10px}.gx{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}.gx figure{aspect-ratio:4/3}.gx figure:first-child{grid-column:1/-1;grid-row:auto;aspect-ratio:16/11}.gx figcaption{font-size:13px;padding:30px 12px 10px}#galeria .gp{margin-top:48px}}
+@media(max-width:1040px){.nav>.btn{display:none}nav ul{gap:16px}}
 </style>
 <script>document.documentElement.className='js'</script>
 </head>
@@ -232,7 +246,7 @@ footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){g
 <header><div class="wrap nav"><a class="lg" href="#topo" aria-label="LIV Beira, início"><img src="images/logo.png" alt="LIV Beira"></a>
 <nav id="menu" aria-label="Principal"><ul>
 <li class="dd" id="dd"><button type="button" aria-expanded="false" aria-controls="ddm">Espaços</button><div class="ddm" id="ddm"></div></li>
-<li><a href="#experiencias">Experiências</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
+<li><a href="#galeria">Galeria</a></li><li><a href="#experiencias">Experiências</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
 <a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar mesa</a>
 <button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button></div></header>
 
@@ -250,7 +264,25 @@ footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){g
 <div class="whr rv"><small>Onde está agora?</small><div class="seg" id="whr" role="group" aria-label="Onde está"></div><p id="whr-t"></p></div>
 <div class="sg" id="sg"></div></div></section>
 
-<section id="experiencias"><div class="wrap"><span class="eyebrow rv">Experiências</span><h2 class="rv">Cinco razões para voltar ao LIV</h2><p class="lead rv">O ponto de encontro mais exclusivo da Beira: do almoço de domingo à última música da noite.</p>
+<section id="galeria"><div class="wrap"><span class="eyebrow rv">Galeria</span><h2 class="rv">Conheça o LIV por dentro e por fora</h2><p class="lead rv">Da entrada ao palco, passando pelo lounge. Veja como é cada ambiente antes de chegar e escolha o seu lugar.</p>
+
+<div class="gp" id="entrada"><div class="gph rv"><div><span class="eyebrow" style="margin-bottom:8px">1 &bull; Entrada</span><h3>Uma entrada que já anuncia a noite</h3></div><p>O portal amarelo com o nome LIV Beira, a receção com cordão de veludo e o letreiro dourado na fachada. Chegou? É só seguir a luz.</p></div>
+<div class="gx"><figure class="rv"><img data-zoom src="images/entrada-fachada.jpg" alt="Fachada do LIV Beira com o letreiro dourado e o portal de entrada"><figcaption>Fachada com o letreiro LIV Beira</figcaption></figure><figure class="rv"><img data-zoom src="images/entrada-portal.jpg" alt="Portal amarelo de entrada do LIV Beira com cordão de veludo" loading="lazy"><figcaption>O portal de entrada</figcaption></figure><figure class="rv"><img data-zoom src="images/entrada-rececao.jpg" alt="Receção do LIV Beira debaixo da tenda, com a porta de vidro ao fundo" loading="lazy"><figcaption>Receção e porta para a sala</figcaption></figure></div>
+<ul class="gi rv"><li>Bacia 1, em frente à Casa das Frutas</li><li>Pagamento com M-Pesa à entrada</li><li>Receção com controlo de acesso</li></ul>
+<div class="row rv" style="margin-top:22px"><a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=LIV+Beira+Bacia+1+Beira+Mo%C3%A7ambique" target="_blank" rel="noopener">Como chegar</a><a class="btn" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar mesa</a></div></div>
+
+<div class="gp" id="galeria-palco"><div class="gph rv"><div><span class="eyebrow" style="margin-bottom:8px">2 &bull; Palco</span><h3>O palco ao ar livre, de relva e luzes de fio</h3></div><p>Uma estrutura de palco pronta para DJs e concertos, mesas altas à volta e sofás pretos numa zona coberta. É aqui que as noites ganham vida.</p></div>
+<div class="gx"><figure class="rv"><img data-zoom src="images/palco-estrutura.jpg" alt="Palco ao ar livre do LIV Beira com estrutura de luz e mesas no terraço" loading="lazy"><figcaption>O palco ao ar livre</figcaption></figure><figure class="rv"><img data-zoom src="images/palco-mesas.jpg" alt="Mesas altas e bancos pretos junto ao palco, com luzes de fio" loading="lazy"><figcaption>Mesas altas junto ao palco</figcaption></figure><figure class="rv"><img data-zoom src="images/palco-sofas.jpg" alt="Sofás pretos numa zona coberta junto ao palco" loading="lazy"><figcaption>Sofás pretos numa zona coberta</figcaption></figure></div>
+<ul class="gi rv"><li>Shows e DJs ao vivo</li><li>Mesas altas e bancos</li><li>Sofás para grupos</li><li>Zona coberta e ao ar livre</li></ul>
+<div class="row rv" style="margin-top:22px"><button type="button" class="btn g" data-open="palco">Ver menu e preços do Palco</button></div></div>
+
+<div class="gp" id="galeria-lounge"><div class="gph rv"><div><span class="eyebrow" style="margin-bottom:8px">3 &bull; Lounge</span><h3>Sofás, conforto e muito estilo</h3></div><p>Sofás grandes para o grupo inteiro, luz azul e a marca LIV na parede. Lá fora, um cantinho de madeira com sofás brancos e poltronas para conversar com calma.</p></div>
+<div class="gx"><figure class="rv"><img data-zoom src="images/lounge-vip.jpg" alt="Lounge interior do LIV Beira com sofás vermelhos e luz azul" loading="lazy"><figcaption>Lounge interior com sofás vermelhos</figcaption></figure><figure class="rv"><img data-zoom src="images/lounge-corona.jpg" alt="Cantinho exterior do lounge com sofás brancos de madeira" loading="lazy"><figcaption>Cantinho exterior com sofás brancos</figcaption></figure><figure class="rv"><img data-zoom src="images/lounge-poltronas.jpg" alt="Poltronas brancas do lounge com vista para o terraço" loading="lazy"><figcaption>Poltronas brancas e vista para o terraço</figcaption></figure></div>
+<ul class="gi rv"><li>Sofás para grupos grandes</li><li>Zona interior com luz de neon</li><li>Cantinho exterior</li><li>Serviço de garrafa à mesa</li></ul>
+<div class="row rv" style="margin-top:22px"><button type="button" class="btn g" data-open="lounge">Ver menu e preços do Lounge</button><button type="button" class="btn" data-call="lounge">Chamar garçom</button></div></div>
+</div></section>
+
+<section id="experiencias" class="alt"><div class="wrap"><span class="eyebrow rv">Experiências</span><h2 class="rv">Cinco razões para voltar ao LIV</h2><p class="lead rv">O ponto de encontro mais exclusivo da Beira: do almoço de domingo à última música da noite.</p>
 <div class="grid">
 <article class="card c8 rv"><div class="im"><img src="images/foto-guitarra.jpg" alt="Guitarrista em concerto no LIV Beira" style="object-position:50% 30%"></div><div class="tx"><h3>Shows ao vivo</h3><p>Guitarras, vozes e uma plateia que canta cada refrão. Sinta a energia do palco de perto, de copo na mão.</p></div></article>
 <article class="card c4 rv" style="--d:.12s"><div class="im"><img src="images/dj.jpg" alt="DJ em atuação no LIV Beira"></div><div class="tx"><h3>DJs residentes e convidados</h3><p>Batidas de amapiano, house e afro que só param quando a pista quer.</p></div></article>
@@ -260,14 +292,14 @@ footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){g
 <div class="ps"><img data-zoom src="images/pratos-dia.jpg" alt="Pratos do dia de quinta-feira"><img data-zoom src="images/feijoada.jpg" alt="Feijoada de sexta-feira"><img data-zoom src="images/buffet-27set.jpg" alt="Domingo Buffet de Família"></div></article>
 </div></div></section>
 
-<section id="promocoes" class="alt"><div class="wrap"><span class="eyebrow rv">Promoções</span><h2 class="rv">Ofertas que pedem mesa já</h2><p class="lead rv">Reserve com antecedência. As melhores mesas esgotam primeiro.</p>
+<section id="promocoes"><div class="wrap"><span class="eyebrow rv">Promoções</span><h2 class="rv">Ofertas que pedem mesa já</h2><p class="lead rv">Reserve com antecedência. As melhores mesas esgotam primeiro.</p>
 <div class="promo">
 <div class="pb big rv"><div class="k">Domingos &bull; 12h</div><h3>Domingo Buffet</h3><div class="price" style="margin-top:14px">600 MT<small>adultos</small></div><div class="price" style="font-size:34px">450 MT<small>crianças até 12 anos</small></div><ul><li>Karaoke e música ao vivo</li><li>Crianças com acesso grátis ao parquinho</li><li>Pizza e bebida gelada em promoção</li></ul><a class="btn g" href="#" data-wa="Olá! Quero reservar mesa para o Domingo Buffet.">Reservar mesa</a></div>
 <div class="pb rv" style="--d:.12s"><div class="k">Quintas &bull; 18h</div><h3>Quinta de Kizomba</h3><ul><li>Compre 4 cervejas e ganhe 1 grátis</li><li>Caipirinha com 10% de desconto</li><li>20% de desconto em qualquer pizza grande</li></ul><a class="btn" href="#" data-wa="Olá! Quero reservar para a Quinta de Kizomba.">Reservar mesa</a></div>
 <div class="pb rv" style="--d:.24s"><div class="k">Quintas e sextas</div><h3>Pratos do dia e Feijoada</h3><div class="price" style="margin-top:14px">450 MT<small>com oferta de 1 água</small></div><ul><li>Quinta, 12h às 15h: frango à zambeziano com arroz ou carapau grelhado com xima</li><li>Sexta: feijoada com chouriço e legumes</li></ul><a class="btn" href="#" data-wa="Olá! Quero reservar almoço no LIV Beira.">Reservar almoço</a></div>
 </div></div></section>
 
-<section id="agenda"><div class="wrap"><span class="eyebrow rv">Agenda</span><h2 class="rv">A semana no LIV</h2><p class="lead rv">Programação que se repete e noites que marcaram a Beira. Cada nova data é anunciada primeiro no nosso WhatsApp.</p>
+<section id="agenda" class="alt"><div class="wrap"><span class="eyebrow rv">Agenda</span><h2 class="rv">A semana no LIV</h2><p class="lead rv">Programação que se repete e noites que marcaram a Beira. Cada nova data é anunciada primeiro no nosso WhatsApp.</p>
 <div class="ag">
 <div class="ev rv" data-dow="4"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/pratos-dia.jpg" alt="Pratos do dia"></div><div class="tx"><span class="day">Quinta &bull; 12h às 15h</span><b>Pratos do Dia</b><span>450 MT com oferta de 1 água</span></div></div>
 <div class="ev rv" data-dow="4" style="--d:.1s"><span class="badge">Hoje</span><div class="im"><img data-zoom src="images/quinta-kizomba.jpg" alt="Quinta de Kizomba After Work"></div><div class="tx"><span class="day">Quinta &bull; 18h</span><b>Quinta de Kizomba</b><span>DJ Telo No Beatz e Atelier da Dança</span></div></div>
@@ -287,18 +319,18 @@ footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){g
 <figure><img data-zoom src="images/ladies.jpg" alt="Ladies Night"><figcaption><b>Ladies Night</b>1 de março</figcaption></figure>
 </div></div></section>
 
-<section id="momentos" class="alt"><div class="wrap"><span class="eyebrow rv">Momentos</span><h2 class="rv">Onde os melhores momentos acontecem</h2><p class="lead rv">Sorrisos, brindes à amizade e memórias que ficam. Reveja a nossa última vibe e marque quem estava consigo.</p>
+<section id="momentos"><div class="wrap"><span class="eyebrow rv">Momentos</span><h2 class="rv">Onde os melhores momentos acontecem</h2><p class="lead rv">Sorrisos, brindes à amizade e memórias que ficam. Reveja a nossa última vibe e marque quem estava consigo.</p>
 <div class="mom">
 <img data-zoom class="rv" src="images/foto-amigas.jpg" alt="Amigas a posar no LIV Beira"><img data-zoom class="rv" src="images/foto-guitarra.jpg" alt="Guitarrista em palco"><img data-zoom class="rv" src="images/foto-brinde.jpg" alt="Amigas a brindar com champanhe"><img data-zoom class="rv" src="images/foto-mulheres.jpg" alt="Duas amigas abraçadas"><img data-zoom class="rv" src="images/foto-publico.jpg" alt="Público junto ao palco"><img data-zoom class="rv" src="images/foto-gin.jpg" alt="Gins tónicos na mesa do LIV"><img data-zoom class="rv" src="images/foto-guitarra-pb.jpg" alt="Guitarrista em preto e branco"><img data-zoom class="rv" src="images/foto-casal.jpg" alt="Casal à entrada do LIV"><img data-zoom class="rv" src="images/foto-aceno.jpg" alt="Convidada a acenar com flores">
 </div></div></section>
 
-<section class="cta"><div class="wrap"><span class="eyebrow rv">Reservas</span><h2 class="rv">A sua mesa está à espera</h2><p class="lead rv">Viva momentos inesquecíveis num espaço feito para si e para quem mais gosta. Reserve agora e chegue com a mesa pronta.</p>
+<section class="cta alt"><div class="wrap"><span class="eyebrow rv">Reservas</span><h2 class="rv">A sua mesa está à espera</h2><p class="lead rv">Viva momentos inesquecíveis num espaço feito para si e para quem mais gosta. Reserve agora e chegue com a mesa pronta.</p>
 <div class="row rv" style="justify-content:center;margin-top:34px"><a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar por WhatsApp</a><a class="btn" href="tel:+258856473974">Ligar +258 85 647 3974</a></div><p class="rv" style="margin-top:26px;color:var(--mut)">Prefere escrever? <a href="mailto:info.livbeira@gmail.com" style="color:var(--gold);font-weight:600">info.livbeira@gmail.com</a></p></div></section>
 </main>
 
 <footer id="contacto"><div class="wrap"><div class="fg">
 <div><img src="images/logo.png" alt="LIV Beira"><p>Restaurante, bar e entretenimento. O ponto de encontro mais exclusivo da Beira.</p></div>
-<div><h4>Onde estamos</h4><p>Bacia 1, em frente à Casa das Frutas<br>Beira, Sofala, Moçambique</p></div>
+<div><h4>Onde estamos</h4><p>Bacia 1, em frente à Casa das Frutas<br>Beira, Sofala, Moçambique</p><a href="https://www.google.com/maps/search/?api=1&amp;query=LIV+Beira+Bacia+1+Beira+Mo%C3%A7ambique" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">Abrir no mapa</a></div>
 <div><h4>Contacto</h4><a href="tel:+258856473974">+258 85 647 3974</a><a href="mailto:info.livbeira@gmail.com">info.livbeira@gmail.com</a></div>
 <div id="soc"><h4>Siga-nos</h4></div>
 <div><h4>Programação</h4><p>Quinta: pratos do dia 12h às 15h e Kizomba às 18h<br>Sexta: feijoada e Sexta de Luxo<br>Domingo: buffet a partir das 12h</p></div>

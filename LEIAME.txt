@@ -37,6 +37,12 @@ Os PINs ficam no código do site: servem para organização da equipa, não como
 Em /garcom.html > Ranking: garçons ordenados pelos chamados aceites (Hoje, 7 dias ou Tudo),
 com concluídos e tempo médio de resposta.
 
+GALERIA E FOTOS
+- Secção "Galeria" (Entrada, Palco, Lounge) com as fotos reais; as mesmas fotos aparecem nos painéis de cada espaço.
+- Fotos: images/entrada-*.jpg, palco-*.jpg, lounge-*.jpg (troque mantendo o nome). Legendas: procure id="galeria" no index.html.
+- Partilha no WhatsApp/Facebook mostra a foto da fachada (og:image).
+- Confirme a morada exata no botão "Como chegar" (abre pesquisa no Google Maps).
+
 OUTROS
 - Cartazes: substitua os ficheiros em images/ mantendo o nome. Fotos dos espaços: images/espaco-*.jpg
 - WhatsApp: usa o número de config.js.
