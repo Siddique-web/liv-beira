@@ -96,13 +96,131 @@ nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--mut)}nav a
 #lb.on{display:flex}#lb img{max-height:92vh;max-width:94vw;object-fit:contain;box-shadow:0 30px 80px -30px rgba(0,0,0,.35)}
 .cta{text-align:center}.cta h2{max-width:17ch;margin:0 auto}.cta .lead{margin-left:auto;margin-right:auto}
 footer{background:var(--off);border-top:1px solid var(--gold2);padding:76px 0 40px}
-.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:36px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px}
 footer img{height:46px;width:auto;margin-bottom:14px}
 footer h4{font:600 20px var(--hd);margin:0 0 12px;color:var(--gold)}
 footer p,footer a{color:var(--mut);font-size:15.5px;text-decoration:none;display:block;margin-bottom:6px}footer a:hover{color:var(--gold)}
 .cp{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mut)}
 @media(max-width:900px){.fg{grid-template-columns:1fr 1fr}section{padding:70px 0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01s!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+/* ===== V4: espaços, menu, chamar garçom ===== */
+nav li.dd{position:relative}
+.dd>button{font:500 15px var(--bd);color:var(--mut);background:none;border:0;cursor:pointer;padding:0;display:flex;align-items:center;gap:8px}
+.dd>button:hover,.dd.open>button{color:var(--gold)}
+.dd>button::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:.3s}
+.dd.open>button::after{transform:rotate(225deg) translateY(-2px)}
+.ddm{display:none;position:absolute;top:calc(100% + 24px);left:50%;transform:translateX(-50%);width:400px;background:#fff;border:1px solid var(--gold2);border-top:2px solid var(--gold);box-shadow:0 30px 60px -30px rgba(120,90,30,.45);padding:6px 8px;z-index:5}
+.dd.open .ddm{display:block}
+.spi{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:14px 10px;cursor:pointer;font-family:var(--bd)}
+.spi:last-child{border-bottom:0}.spi:hover{background:var(--off)}
+.spi img{width:58px;height:58px;object-fit:cover;border:1px solid var(--gold2);flex:none}
+.spi b{display:block;font:600 20px/1.2 var(--hd);color:var(--ink)}
+.spi span{display:block;font-size:13.5px;line-height:1.4;color:var(--mut);margin-top:2px}
+.spi i{margin-left:auto;font:600 12px var(--bd);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding-left:8px}
+@media(max-width:1100px){nav ul{gap:20px}}
+@media(max-width:900px){
+ nav.open{max-height:calc(100vh - 74px);overflow-y:auto}
+ nav li.dd{border-bottom:1px solid var(--line);padding-bottom:6px}
+ .dd>button{padding:14px 0 6px;font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);pointer-events:none}
+ .dd>button::after{display:none}
+ .ddm{display:block;position:static;transform:none;width:auto;border:0;box-shadow:none;padding:0}
+ .spi{padding:12px 0}.spi i{display:none}
+ .spi b{font-size:21px}
+}
+/* secção espaços */
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--gold2);background:#fff}
+.seg button{padding:13px 6px;border:0;background:#fff;font:600 15px var(--bd);color:var(--mut);cursor:pointer;transition:.25s}
+.seg button+button{border-left:1px solid var(--gold2)}
+.seg button:hover{color:var(--gold)}
+.seg button[aria-pressed=true]{background:var(--gold);color:#fff}
+.whr{max-width:520px;margin-top:34px}
+.whr small{display:block;font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.whr p{margin-top:12px;font-size:15.5px;color:var(--mut)}
+.lk{background:none;border:0;padding:0;font:600 15.5px var(--bd);color:var(--gold);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.sc{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;position:relative;transition:.3s}
+.sc.here{border-color:var(--gold);box-shadow:0 24px 44px -26px rgba(166,124,44,.6)}
+.sc .badge{display:none}.sc.here .badge{display:block}
+.sc .im{aspect-ratio:4/3;overflow:hidden}.sc .im img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.sc:hover .im img{transform:scale(1.05)}
+.sc .tx{padding:24px 26px 28px;border-top:2px solid var(--gold2);display:flex;flex-direction:column;flex:1}
+.sc .day{font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.sc h3{margin:6px 0 8px}.sc p{color:var(--mut);font-size:16px}
+.sc ul{padding:0;margin:16px 0 24px;list-style:none;flex:1}.sc li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--mut)}
+.sc .btn{align-self:flex-start}
+@media(max-width:900px){.sg{grid-template-columns:1fr}}
+/* painel do espaço */
+#esp{position:fixed;inset:0;z-index:80;background:#fff;overflow-y:auto;display:none;overscroll-behavior:contain}
+#esp.on{display:block}
+.esp-top{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.esp-bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.esp-bar img{height:34px;width:auto}
+.xbtn{width:44px;height:44px;border:1.5px solid var(--gold2);background:#fff;color:var(--gold);cursor:pointer;font-size:22px;line-height:1;padding:0}.xbtn:hover{background:var(--gold);color:#fff}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.tabs button{padding:14px 4px;border:0;border-bottom:3px solid transparent;background:none;font:600 19px var(--hd);color:var(--mut);cursor:pointer}
+.tabs button.on{color:var(--gold);border-bottom-color:var(--gold)}
+.eh{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:40px 0 8px}
+.eim{background:#fff;padding:10px;border:1px solid var(--gold2);box-shadow:0 34px 60px -30px rgba(120,90,30,.5)}
+.eim img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.etx h2{margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:22px 0 0}
+.chips li{border:1px solid var(--gold2);background:var(--off);padding:10px 16px;font-size:15px;color:var(--ink)}
+.esp .sub{font-size:28px;margin:56px 0 0}
+.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 56px;margin-top:26px}
+.mg h4{font:600 22px var(--hd);color:var(--gold);margin:0 0 6px;padding-bottom:8px;border-bottom:2px solid var(--gold2)}
+.pr{display:flex;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pr .n{font-weight:600;line-height:1.35}.pr .n small{display:block;font-weight:400;font-size:14px;color:var(--mut);line-height:1.4;margin-top:2px}
+.pr .dl{flex:1;border-bottom:1.5px dotted var(--gold2);transform:translateY(-5px);min-width:12px}
+.pr .p{font:600 20px var(--hd);color:var(--gold);white-space:nowrap}
+.enote{margin-top:28px;padding:16px 20px;border-left:3px solid var(--gold);background:var(--off);color:var(--mut);font-size:15.5px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line)}
+.more{margin:56px 0 90px;padding-top:30px;border-top:1px solid var(--line)}
+.more p{font:600 12px var(--bd);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+@media(max-width:900px){.eh{grid-template-columns:1fr;gap:26px;padding-top:26px}.tabs button{font-size:17px}.esp .sub{margin-top:44px}.gal{gap:8px}}
+/* botão flutuante */
+#fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;gap:10px;padding:14px 20px;border:0;background:linear-gradient(135deg,#c9a24d,#a67c2c 55%,#d6b866);color:#fff;font:600 15px var(--bd);letter-spacing:.04em;cursor:pointer;box-shadow:0 16px 32px -12px rgba(120,90,30,.75);transition:.3s}
+#fab:hover{filter:brightness(1.08)}#fab svg{width:22px;height:22px;flex:none}
+#fab.pulse{animation:pl 1.8s infinite}
+@keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(166,124,44,.5),0 16px 32px -12px rgba(120,90,30,.75)}50%{box-shadow:0 0 0 14px rgba(166,124,44,0),0 16px 32px -12px rgba(120,90,30,.75)}}
+body.lock #fab,body:has(nav.open) #fab{display:none}
+/* janela do garçom */
+#wsh{position:fixed;inset:0;z-index:85;background:rgba(38,35,31,.5);display:none;align-items:flex-end;justify-content:center}
+#wsh.on{display:flex}
+.wbox{background:#fff;width:100%;max-width:560px;max-height:94vh;overflow-y:auto;border-top:3px solid var(--gold);padding:20px 22px calc(26px + env(safe-area-inset-bottom));animation:up .35s ease;overscroll-behavior:contain}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media(min-width:700px){#wsh{align-items:center}.wbox{border:1px solid var(--gold2);border-top:3px solid var(--gold);max-height:90vh}}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.wh h3{font-size:28px}
+.fl{margin-bottom:20px}
+.fl>label{display:block;font:600 12.5px var(--bd);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.fl>label em{font-style:normal;color:var(--mut);letter-spacing:0;text-transform:none;font-weight:400}
+.wbox input,.wbox textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);background:#fff;font:400 16px var(--bd);color:var(--ink);border-radius:0;-webkit-appearance:none}
+.wbox input:focus,.wbox textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.er{display:block;color:#a3361f;font-size:14px;margin-top:6px;min-height:0}
+.rs{display:flex;flex-wrap:wrap;gap:8px}
+.rs button{padding:11px 16px;border:1.5px solid var(--gold2);background:#fff;font:500 15px var(--bd);color:var(--mut);cursor:pointer}
+.rs button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#fff}
+.wbox details{border:1px solid var(--line);margin-bottom:8px}
+.wbox summary{padding:13px 14px;font:600 18px var(--hd);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.wbox summary::-webkit-details-marker{display:none}
+.wbox summary::after{content:"+";color:var(--gold);font:500 22px var(--bd)}.wbox details[open] summary::after{content:"−"}
+.mi{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--line)}
+.mi b{font-weight:600;font-size:15.5px;display:block;line-height:1.3}.mi small{color:var(--gold);font-weight:600;font-size:14px}
+.st{display:flex;align-items:center;flex:none}
+.st button{width:38px;height:38px;border:1.5px solid var(--gold2);background:#fff;color:var(--gold);font-size:20px;cursor:pointer;padding:0;line-height:1}.st button:hover{background:var(--gold);color:#fff}
+.st span{min-width:34px;text-align:center;font-weight:600}
+.wtot{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);margin-bottom:14px;font-weight:600}
+.wtot b{font:600 26px var(--hd);color:var(--gold)}
+.wbox .btn.full{width:100%;text-align:center;padding:16px}
+.wst{text-align:center;padding:6px 0 4px}
+.wst .ic{width:78px;height:78px;margin:6px auto 20px;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold)}
+.wst .ic svg{width:36px;height:36px}.wst.pend .ic{animation:pl 1.8s infinite}
+.wst h4{font:600 26px/1.2 var(--hd);margin:0 0 8px}.wst>p{color:var(--mut)}
+.sum{text-align:left;margin:22px 0;border:1px solid var(--line);background:var(--off);padding:6px 16px}
+.sum div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}.sum div:last-child{border-bottom:0}
+.sum span{color:var(--mut)}.sum b{font-weight:600;text-align:right}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;font-size:15px;z-index:120;max-width:90vw;text-align:center}
+footer a{overflow-wrap:break-word}@media(max-width:900px){.fg>div:nth-child(3){grid-column:1/-1}}
+.sm{display:inline!important;font-size:13.5px!important}
 </style>
 <script>document.documentElement.className='js'</script>
 </head>
@@ -112,7 +230,9 @@ footer p,footer a{color:var(--mut);font-size:15.5px;text-decoration:none;display
 <div id="lb" role="dialog" aria-label="Imagem ampliada"><img alt=""></div>
 
 <header><div class="wrap nav"><a class="lg" href="#topo" aria-label="LIV Beira, início"><img src="images/logo.png" alt="LIV Beira"></a>
-<nav id="menu" aria-label="Principal"><ul><li><a href="#experiencias">Experiências</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
+<nav id="menu" aria-label="Principal"><ul>
+<li class="dd" id="dd"><button type="button" aria-expanded="false" aria-controls="ddm">Espaços</button><div class="ddm" id="ddm"></div></li>
+<li><a href="#experiencias">Experiências</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
 <a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar mesa</a>
 <button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button></div></header>
 
@@ -125,6 +245,10 @@ footer p,footer a{color:var(--mut);font-size:15.5px;text-decoration:none;display
 <div class="slide"><div><div class="tag">Concertos internacionais</div><h1>Paige, a Queen of Amapiano, no palco do LIV</h1><p class="d">Grandes nomes a poucos metros de si. A próxima noite já está a ser preparada: fale connosco e garanta a melhor mesa.</p><div class="row"><a class="btn g" href="#" data-wa="Olá! Quero ser avisado dos próximos concertos do LIV Beira.">Quero ser avisado</a><a class="btn" href="#experiencias">Conhecer o espaço</a></div></div><div class="poster"><img src="images/paige.jpg" alt="Cartaz do concerto de Paige"></div></div>
 <div class="ctl"><button class="arr" id="pv" aria-label="Anterior">&#8592;</button><div class="dots" id="dots"></div><button class="arr" id="nx" aria-label="Seguinte">&#8594;</button></div>
 </div></div></div>
+
+<section id="espacos" class="alt"><div class="wrap"><span class="eyebrow rv">Os nossos espaços</span><h2 class="rv">Três ambientes, uma só casa</h2><p class="lead rv">Palco, Restaurante e Lounge têm menus e preços próprios. Diga-nos onde está e mostramos o que servimos nesse espaço.</p>
+<div class="whr rv"><small>Onde está agora?</small><div class="seg" id="whr" role="group" aria-label="Onde está"></div><p id="whr-t"></p></div>
+<div class="sg" id="sg"></div></div></section>
 
 <section id="experiencias"><div class="wrap"><span class="eyebrow rv">Experiências</span><h2 class="rv">Cinco razões para voltar ao LIV</h2><p class="lead rv">O ponto de encontro mais exclusivo da Beira: do almoço de domingo à última música da noite.</p>
 <div class="grid">
@@ -169,19 +293,27 @@ footer p,footer a{color:var(--mut);font-size:15.5px;text-decoration:none;display
 </div></div></section>
 
 <section class="cta"><div class="wrap"><span class="eyebrow rv">Reservas</span><h2 class="rv">A sua mesa está à espera</h2><p class="lead rv">Viva momentos inesquecíveis num espaço feito para si e para quem mais gosta. Reserve agora e chegue com a mesa pronta.</p>
-<div class="row rv" style="justify-content:center;margin-top:34px"><a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar por WhatsApp</a><a class="btn" href="tel:+258878886035">Ligar +258 87 888 6035</a></div></div></section>
+<div class="row rv" style="justify-content:center;margin-top:34px"><a class="btn g" href="#" data-wa="Olá! Quero reservar uma mesa no LIV Beira.">Reservar por WhatsApp</a><a class="btn" href="tel:+258856473974">Ligar +258 85 647 3974</a></div><p class="rv" style="margin-top:26px;color:var(--mut)">Prefere escrever? <a href="mailto:info.livbeira@gmail.com" style="color:var(--gold);font-weight:600">info.livbeira@gmail.com</a></p></div></section>
 </main>
 
 <footer id="contacto"><div class="wrap"><div class="fg">
 <div><img src="images/logo.png" alt="LIV Beira"><p>Restaurante, bar e entretenimento. O ponto de encontro mais exclusivo da Beira.</p></div>
 <div><h4>Onde estamos</h4><p>Bacia 1, em frente à Casa das Frutas<br>Beira, Sofala, Moçambique</p></div>
-<div><h4>Reservas</h4><a href="tel:+258878886035">+258 87 888 6035</a><a href="tel:+258841086034">+258 84 108 6034</a><a href="tel:+258868190000">+258 86 819 0000</a></div>
+<div><h4>Contacto</h4><a href="tel:+258856473974">+258 85 647 3974</a><a href="mailto:info.livbeira@gmail.com">info.livbeira@gmail.com</a></div>
 <div id="soc"><h4>Siga-nos</h4></div>
 <div><h4>Programação</h4><p>Quinta: pratos do dia 12h às 15h e Kizomba às 18h<br>Sexta: feijoada e Sexta de Luxo<br>Domingo: buffet a partir das 12h</p></div>
-</div><div class="cp">Produção: Sílvio Kintas &bull; Apoios: Beira Online, Chiveve Travel, M-Ticket e CDM &bull; &copy; LIV Beira</div></div></footer>
+</div><div class="cp">Apoios: Beira Online e Chiveve Travel &bull; &copy; LIV Beira &bull; <a class="sm" href="garcom.html">Área da equipa</a></div></div></footer>
 
+<div id="esp" role="dialog" aria-modal="true" aria-label="Menu e preços do espaço"><div class="esp-top"><div class="wrap"><div class="esp-bar"><img src="images/logo.png" alt="LIV Beira"><button class="xbtn" id="esp-x" aria-label="Fechar">&times;</button></div><div class="tabs" id="esp-tabs" role="tablist"></div></div></div><div class="wrap esp" id="esp-c"></div></div>
+
+<div id="wsh" role="dialog" aria-modal="true" aria-label="Chamar garçom"><div class="wbox" id="wbox"></div></div>
+
+<button id="fab" type="button" aria-label="Chamar garçom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 8V6"/><path d="M10 6h4"/><path d="M2 21h20"/></svg><span id="fab-t">Chamar garçom</span></button>
+
+<script src="config.js"></script>
+<script src="liv-api.js"></script>
 <script>
-const WA='258878886035';
+const WA=LIV_CONFIG.phone;
 /* REDES SOCIAIS: cole aqui os links; os vazios nao aparecem */
 const SOCIAL={Instagram:'',Facebook:'',TikTok:''};
 {const s=document.getElementById('soc');let n=0;for(const[k,v]of Object.entries(SOCIAL))if(v){const a=document.createElement('a');a.href=v;a.textContent=k;a.target='_blank';a.rel='noopener';s.appendChild(a);n++}if(!n)s.remove()}
@@ -203,4 +335,154 @@ mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{mn.classList.remove('open');b
 const lb=document.getElementById('lb'),li=lb.querySelector('img');
 document.querySelectorAll('[data-zoom]').forEach(i=>i.onclick=()=>{li.src=i.src;li.alt=i.alt;lb.classList.add('on')});
 lb.onclick=()=>lb.classList.remove('on');addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
-</script></body></html>
+</script>
+<script>
+(function(){
+const C=window.LIV_CONFIG,A=window.LIV_API,SP=C.spaces,ORDER=['palco','restaurante','lounge'];
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0MT';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const st={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+const wa=m=>'https://wa.me/'+C.phone+'?text='+encodeURIComponent(m);
+const body=document.body;
+let here=st.get('liv_space');if(!SP[here])here=null;
+const qs=new URLSearchParams(location.search);
+
+/* ---------- menu Espaços (dropdown / lista no telemóvel) ---------- */
+function ddHtml(){return ORDER.map(i=>`<button type="button" class="spi" data-open="${i}"><img src="${SP[i].img}" alt="" loading="lazy"><div><b>${SP[i].name}</b><span>${esc(SP[i].tagline)}</span></div><i>${here===i?'Está aqui':'Ver preços'}</i></button>`).join('')}
+const dd=$('#dd'),ddb=$('button',dd);
+ddb.onclick=e=>{e.stopPropagation();const o=dd.classList.toggle('open');ddb.setAttribute('aria-expanded',o)};
+document.addEventListener('click',e=>{if(!dd.contains(e.target)){dd.classList.remove('open');ddb.setAttribute('aria-expanded',false)}});
+
+/* ---------- secção Espaços na página ---------- */
+function renderHome(){
+ $('#whr').innerHTML=ORDER.map(i=>`<button type="button" data-here="${i}" aria-pressed="${here===i}">${SP[i].name}</button>`).join('');
+ $('#whr-t').innerHTML=here?`Está no <b>${SP[here].name}</b>. <button type="button" class="lk" data-open="${here}">Ver menu e preços</button>`:'Escolha o seu espaço para ver os preços certos.';
+ $$('.sc').forEach(c=>c.classList.toggle('here',c.dataset.sp===here));
+ $('#ddm').innerHTML=ddHtml();
+}
+$('#sg').innerHTML=ORDER.map((i,n)=>{const s=SP[i];return `<article class="sc rv" data-sp="${i}" style="--d:${n*.12}s"><span class="badge">Está aqui</span><div class="im"><img src="${s.img}" alt="${esc(s.name)} do LIV Beira" loading="lazy"></div><div class="tx"><span class="day">${esc(s.label)}</span><h3>${s.name}</h3><p>${esc(s.tagline)}</p><ul>${s.offers.slice(0,3).map(o=>`<li>${esc(o)}</li>`).join('')}</ul><button type="button" class="btn g" data-open="${i}">Ver menu e preços</button></div></article>`}).join('');
+
+function setHere(i){here=SP[i]?i:null;if(here)st.set('liv_space',here);renderHome();if(E.classList.contains('on'))renderSpace(cur);if(W.classList.contains('on')&&view==='form')renderForm()}
+
+/* ---------- painel do espaço ---------- */
+const E=$('#esp'),EC=$('#esp-c'),ET=$('#esp-tabs');let cur='palco',lastFocus=null;
+function lock(on){body.classList.toggle('lock',on||E.classList.contains('on')||W.classList.contains('on'))}
+function openSpace(i){if(!SP[i])return;lastFocus=document.activeElement;cur=i;renderSpace(i);E.classList.add('on');body.classList.add('lock');$('#esp-x').focus({preventScroll:true});dd.classList.remove('open');mn.classList.remove('open');bg.setAttribute('aria-expanded',false)}
+function closeSpace(){E.classList.remove('on');lock(false);if(ORDER.includes(location.hash.slice(1)))history.replaceState(null,'',location.pathname+location.search);if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})}
+function renderSpace(i){
+ cur=i;const s=SP[i];
+ ET.innerHTML=ORDER.map(k=>`<button type="button" role="tab" class="${k===i?'on':''}" aria-selected="${k===i}" data-tab="${k}">${SP[k].name}</button>`).join('');
+ EC.innerHTML=`<div class="eh"><div class="eim"><img src="${s.img}" alt="${esc(s.name)} do LIV Beira" data-zoom></div><div class="etx"><span class="eyebrow">${esc(s.label)}</span><h2>${s.name}</h2><p class="lead">${esc(s.desc)}</p><div class="row" style="margin-top:26px"><button type="button" class="btn g" data-here="${i}">${here===i?'&#10003; Estou aqui':'Estou aqui'}</button><button type="button" class="btn" data-call="${i}">Chamar garçom</button><a class="btn" href="${wa('Olá! Quero reservar mesa no '+s.name+' do LIV Beira.')}" target="_blank" rel="noopener">Reservar</a></div></div></div>
+ <h3 class="sub">O que oferece</h3><ul class="chips">${s.offers.map(o=>`<li>${esc(o)}</li>`).join('')}</ul>
+ <h3 class="sub">Menu e preços &bull; ${s.name}</h3><div class="mg">${s.menu.map(c=>`<div><h4>${esc(c.cat)}</h4>${c.items.map(it=>`<div class="pr"><div class="n">${esc(it.n)}${it.d?`<small>${esc(it.d)}</small>`:''}</div><span class="dl"></span><span class="p">${fmt(it.p)}</span></div>`).join('')}</div>`).join('')}</div>
+ ${s.note?`<p class="enote">${esc(s.note)}</p>`:''}
+ <h3 class="sub">O ambiente</h3><div class="gal">${s.gallery.map(g=>`<img src="${g}" alt="Ambiente do ${esc(s.name)}" data-zoom loading="lazy">`).join('')}</div>
+ <div class="more"><p>Ver outro espaço</p><div class="row">${ORDER.filter(k=>k!==i).map(k=>`<button type="button" class="btn" data-tab="${k}">${SP[k].name}</button>`).join('')}</div></div>`;
+ E.scrollTop=0;
+}
+$('#esp-x').onclick=closeSpace;
+
+/* ---------- chamar garçom ---------- */
+const W=$('#wsh'),WB=$('#wbox'),fab=$('#fab'),fabT=$('#fab-t');
+const REASONS=C.reasons;let view='form',active=st.get('liv_call'),call=null,poll=null,busy=false;
+const D={reason:'pedido',qty:{},table:st.get('liv_table')||qs.get('mesa')||'',name:st.get('liv_name')||'',note:''};
+const ICON={bell:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 8V6"/><path d="M10 6h4"/><path d="M2 21h20"/></svg>',ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',walk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>'};
+const live=()=>call&&(call.status==='pending'||call.status==='accepted');
+function openWaiter(i){if(i&&SP[i]&&!live()){here=i;st.set('liv_space',i);renderHome()}lastFocus=document.activeElement;view=live()?'status':'form';render();W.classList.add('on');body.classList.add('lock');if(live())startPoll()}
+function closeWaiter(){W.classList.remove('on');lock(false)}
+function render(){view==='status'?renderStatus():renderForm()}
+function items(){const s=SP[here];if(!s)return[];const o=[];s.menu.forEach((c,ci)=>c.items.forEach((it,ii)=>{const q=D.qty[ci+'-'+ii]||0;if(q>0)o.push({n:it.n,q,p:it.p})}));return o}
+const total=l=>l.reduce((a,x)=>a+x.q*x.p,0);
+function renderForm(){
+ const r=REASONS.find(x=>x.id===D.reason)||REASONS[0],s=SP[here];
+ WB.innerHTML=`<div class="wh"><h3>Chamar garçom</h3><button type="button" class="xbtn" data-close aria-label="Fechar">&times;</button></div>
+ <div class="fl"><label>1. Onde está?</label><div class="seg" role="group">${ORDER.map(i=>`<button type="button" data-ws="${i}" aria-pressed="${here===i}">${SP[i].name}</button>`).join('')}</div><span class="er" id="e-sp"></span></div>
+ <div class="fl"><label for="wt">2. Mesa ou zona</label><input id="wt" value="${esc(D.table)}" placeholder="Ex.: Mesa 12, Sofá 3, junto ao palco" autocomplete="off" maxlength="60"><span class="er" id="e-t"></span></div>
+ <div class="fl"><label for="wn">O seu nome <em>(opcional)</em></label><input id="wn" value="${esc(D.name)}" placeholder="Para o garçom o tratar pelo nome" autocomplete="given-name" maxlength="40"></div>
+ <div class="fl"><label>3. Motivo</label><div class="rs" role="group">${REASONS.map(x=>`<button type="button" data-wr="${x.id}" aria-pressed="${D.reason===x.id}">${esc(x.n)}</button>`).join('')}</div></div>
+ ${r.menu?(s?`<div class="fl"><label>4. O que deseja? <em>Menu do ${s.name}</em></label>${s.menu.map((c,ci)=>`<details ${ci===0?'open':''}><summary>${esc(c.cat)}</summary>${c.items.map((it,ii)=>`<div class="mi"><div><b>${esc(it.n)}</b><small>${fmt(it.p)}</small></div><div class="st"><button type="button" data-q="${ci}-${ii}" data-d="-1" aria-label="Menos ${esc(it.n)}">&minus;</button><span id="q-${ci}-${ii}">${D.qty[ci+'-'+ii]||0}</span><button type="button" data-q="${ci}-${ii}" data-d="1" aria-label="Mais ${esc(it.n)}">+</button></div></div>`).join('')}</details>`).join('')}<span class="er" id="e-i"></span></div>`:`<div class="fl"><label>4. O que deseja?</label><p style="color:var(--mut);font-size:15.5px">Escolha primeiro onde está para ver o menu desse espaço.</p></div>`):''}
+ <div class="fl"><label for="wnote">${r.menu?'5. ':'4. '}Mais detalhes <em>(opcional)</em></label><textarea id="wnote" rows="2" maxlength="300" placeholder="${r.menu?'Ex.: sem gelo, bem passado, trazer 2 copos…':'Diga ao garçom o que precisa'}">${esc(D.note)}</textarea></div>
+ ${r.menu?`<div class="wtot"><span>Total estimado</span><b id="tot">${fmt(total(items()))}</b></div>`:''}
+ <span class="er" id="e-s" style="margin-bottom:10px"></span>
+ <button type="button" class="btn g full" id="wsend">Chamar garçom agora</button>`;
+}
+function renderStatus(){
+ const c=call;if(!c){view='form';return renderForm()}
+ const sp=SP[c.space]||{name:c.space},its=c.items||[],T=total(its);
+ const M={pending:['pend','bell','À procura de um garçom livre…','O seu chamado já está com a equipa. Fique à vontade, o primeiro garçom disponível vai aceitar.'],
+ accepted:['','walk',esc(c.waiter||'Um garçom')+' aceitou o seu chamado','O seu chamado foi aceite. O garçom está a caminho da sua mesa.'],
+ done:['','ok','Atendimento concluído','Obrigado por escolher o LIV Beira. Volte sempre!'],
+ cancelled:['','x','Chamado cancelado','Se precisar de nós, pode chamar o garçom outra vez.']}[c.status]||['','bell','',''];
+ WB.innerHTML=`<div class="wh"><h3>O seu chamado</h3><button type="button" class="xbtn" data-close aria-label="Fechar">&times;</button></div>
+ <div class="wst ${M[0]}"><div class="ic">${ICON[M[1]]}</div><h4>${M[2]}</h4><p>${M[3]}</p></div>
+ <div class="sum"><div><span>Local</span><b>${esc(sp.name)} &bull; ${esc(c.table_ref)}</b></div><div><span>Motivo</span><b>${esc(c.reason)}</b></div>${its.length?`<div><span>Pedido</span><b>${its.map(x=>x.q+'× '+esc(x.n)).join('<br>')}</b></div><div><span>Total estimado</span><b>${fmt(T)}</b></div>`:''}${c.note?`<div><span>Detalhes</span><b>${esc(c.note)}</b></div>`:''}</div>
+ ${c.status==='pending'?'<button type="button" class="btn full" id="wcancel">Cancelar chamado</button>':''}
+ ${c.status==='done'||c.status==='cancelled'?'<button type="button" class="btn g full" id="wnew">Novo chamado</button>':''}`;
+}
+function fabState(){
+ const s=call&&call.status;fab.classList.toggle('pulse',s==='pending');
+ fabT.textContent=s==='pending'?'A chamar garçom…':s==='accepted'?(call.waiter||'Garçom')+' a caminho':'Chamar garçom';
+}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;body.appendChild(d);setTimeout(()=>d.remove(),3600)}
+async function tick(){
+ if(!active)return;
+ try{const c=await A.get(active);if(!c){stopPoll();active=null;st.del('liv_call');call=null;fabState();if(W.classList.contains('on')){view='form';render()}return}
+  const prev=call&&call.status;call=c;
+  if(prev&&prev!==c.status){if(c.status==='accepted'&&navigator.vibrate)navigator.vibrate([200,100,200]);if(W.classList.contains('on')&&view==='status')renderStatus()}
+  if(c.status==='done'||c.status==='cancelled'){stopPoll();active=null;st.del('liv_call')}
+  fabState()}catch(e){}
+}
+function startPoll(){if(poll||!active)return;poll=setInterval(tick,3000)}
+function stopPoll(){clearInterval(poll);poll=null}
+async function send(){
+ if(busy)return;const r=REASONS.find(x=>x.id===D.reason),l=items();
+ const sv=$('#wt').value.trim();D.table=sv;D.name=$('#wn').value.trim();D.note=$('#wnote').value.trim();
+ ['e-sp','e-t','e-i','e-s'].forEach(i=>{const e=$('#'+i);if(e)e.textContent=''});
+ let bad=null;
+ if(!here){$('#e-sp').textContent='Escolha onde está.';bad=$('#e-sp')}
+ else if(!D.table){$('#e-t').textContent='Diga-nos a sua mesa ou zona para o garçom o encontrar.';bad=$('#wt')}
+ else if(r.menu&&!l.length&&!D.note){const e=$('#e-i');if(e)e.textContent='Escolha pelo menos um item ou escreva o que deseja.';bad=e}
+ if(bad){bad.scrollIntoView({block:'center',behavior:'smooth'});if(bad.focus&&bad.tagName==='INPUT')bad.focus({preventScroll:true});return}
+ busy=true;const b=$('#wsend');b.textContent='A enviar…';b.disabled=true;
+ try{
+  const c=await A.create({space:here,table_ref:D.table,client_name:D.name,reason:r.n,items:r.menu?l:[],note:D.note});
+  st.set('liv_table',D.table);st.set('liv_name',D.name);
+  call=c;active=c.id;st.set('liv_call',c.id);D.qty={};D.note='';view='status';renderStatus();fabState();startPoll();
+ }catch(e){b.disabled=false;b.textContent='Chamar garçom agora';$('#e-s').textContent='Não foi possível enviar. Verifique a internet e tente outra vez, ou fale com um garçom.'}
+ busy=false;
+}
+WB.addEventListener('input',e=>{if(e.target.id==='wt')D.table=e.target.value;if(e.target.id==='wn')D.name=e.target.value;if(e.target.id==='wnote')D.note=e.target.value});
+WB.addEventListener('click',async e=>{
+ const t=e.target.closest('button');if(!t)return;
+ if(t.hasAttribute('data-close'))return closeWaiter();
+ if(t.dataset.ws){D.table=($('#wt')||{}).value||D.table;D.name=($('#wn')||{}).value||D.name;D.note=($('#wnote')||{}).value||D.note;D.qty={};setHere(t.dataset.ws);return}
+ if(t.dataset.wr){D.table=$('#wt').value;D.name=$('#wn').value;D.note=$('#wnote').value;D.reason=t.dataset.wr;return renderForm()}
+ if(t.dataset.q){const k=t.dataset.q,v=Math.max(0,Math.min(20,(D.qty[k]||0)+ +t.dataset.d));D.qty[k]=v;$('#q-'+k).textContent=v;$('#tot').textContent=fmt(total(items()));return}
+ if(t.id==='wsend')return send();
+ if(t.id==='wcancel'){t.disabled=true;try{const c=await A.cancel(active);if(c){call=c;stopPoll();active=null;st.del('liv_call')}else toast('O garçom acabou de aceitar o seu chamado.');await tick()}catch(x){}if(call&&call.status==='cancelled')renderStatus();else if(call)renderStatus();fabState();return}
+ if(t.id==='wnew'){call=null;view='form';fabState();renderForm()}
+});
+W.addEventListener('click',e=>{if(e.target===W)closeWaiter()});
+fab.onclick=()=>openWaiter();
+
+/* ---------- cliques globais ---------- */
+document.addEventListener('click',e=>{
+ const o=e.target.closest('[data-open]');if(o){e.preventDefault();return openSpace(o.dataset.open)}
+ const h=e.target.closest('[data-here]');if(h)return setHere(h.dataset.here);
+ const tb=e.target.closest('[data-tab]');if(tb)return renderSpace(tb.dataset.tab);
+ const cl=e.target.closest('[data-call]');if(cl){closeSpace();return openWaiter(cl.dataset.call)}
+ const z=e.target.closest('#esp [data-zoom]');if(z){const l=document.getElementById('lb');l.querySelector('img').src=z.src;l.querySelector('img').alt=z.alt;l.classList.add('on')}
+});
+addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(document.getElementById('lb').classList.contains('on'))return;if(W.classList.contains('on'))closeWaiter();else if(E.classList.contains('on'))closeSpace();dd.classList.remove('open')});
+addEventListener('storage',e=>{if(e.key==='liv_calls_v1')tick()});
+
+/* ---------- arranque ---------- */
+renderHome();
+(async()=>{if(active){try{call=await A.get(active)}catch(e){}if(call&&live()){startPoll()}else{if(call&&!live())call=null;active=null;st.del('liv_call')}fabState()}})();
+const hs=location.hash.slice(1);
+if(ORDER.includes(hs)){setHere(hs);setTimeout(()=>openSpace(hs),3300)}
+})();
+</script>
+
+</body></html>

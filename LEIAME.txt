@@ -1,6 +1,45 @@
-LIV Beira - site estatico (HTML/CSS/JS, sem dependencias)
-1. Abra index.html no navegador, ou envie toda a pasta para o alojamento.
-2. Trocar cartazes: substitua os ficheiros em images/ mantendo o nome.
-3. Numero de WhatsApp: procure  const WA='258878886035'  no final do index.html.
-4. Redes sociais: no fim do index.html, preencha SOCIAL={Instagram:'link',...}.
-5. Favicon: favicon.ico, favicon-32.png, apple-touch-icon.png.
+LIV BEIRA - SITE V4 (HTML/CSS/JS, sem dependências)
+
+O QUE HÁ DE NOVO
+- Menu (as 3 barras): Palco, Restaurante e Lounge, com o que cada um oferece e os seus preços.
+- Secção "Os nossos espaços" na página inicial: o cliente escolhe onde está e vê o menu/preços desse espaço.
+- Botão "Chamar garçom" (canto inferior direito): o cliente escolhe o espaço, a mesa, o motivo,
+  escolhe itens do menu e envia. Acompanha o estado: "à procura de garçom" > "Garçom X aceitou" > "concluído".
+- Área do garçom: /garcom.html  (aceitar chamados, concluir atendimentos e Ranking dos garçons).
+- Contacto único: +258 85 647 3974 | info.livbeira@gmail.com. Rodapé sem os outros números,
+  sem Sílvio Kintas, M-Ticket e CDM.
+
+1) PUBLICAR
+Envie toda a pasta (site) para o Vercel, como já faz.
+
+2) PREÇOS, GARÇONS E CONTACTOS  ->  abra config.js
+- Preços: altere só o número "p" de cada item (em MT). ATENÇÃO: confirme/substitua os preços de
+  exemplo. Estão reais apenas: Buffet 600/450, Prato do dia 450, Feijoada 450.
+- Garçons: lista "waiters" (nome + PIN de 4 dígitos). Acrescente ou remova linhas.
+- Telefone/email: "phone" e "email".
+
+3) FAZER O "CHAMAR GARÇOM" FUNCIONAR ENTRE TELEMÓVEIS (Supabase, grátis)
+Sem este passo o sistema está em MODO DEMONSTRAÇÃO (só funciona no mesmo telemóvel/navegador).
+a. Crie um projeto em supabase.com.
+b. SQL Editor > New query > cole o conteúdo de supabase.sql > Run.
+c. Project Settings > API: copie "Project URL" e a chave "anon" (ou "publishable").
+d. Em config.js preencha:  backend: { url: '...', key: '...' }
+e. Publique de novo. Pronto: os clientes chamam e os garçons recebem em /garcom.html.
+Notas: quando 2 garçons carregam em "Aceitar" ao mesmo tempo, só o primeiro fica com o chamado.
+Nos telemóveis dos garçons, abra /garcom.html, toque "Ativar som" e deixe o ecrã aberto.
+Os PINs ficam no código do site: servem para organização da equipa, não como segurança bancária.
+
+4) QR CODE POR MESA (opcional, muito útil)
+- Abre direto o menu do espaço e já preenche a mesa:
+  https://liv-beira.vercel.app/?mesa=12#lounge      (também #palco e #restaurante)
+
+5) RANKING
+Em /garcom.html > Ranking: garçons ordenados pelos chamados aceites (Hoje, 7 dias ou Tudo),
+com concluídos e tempo médio de resposta.
+
+OUTROS
+- Cartazes: substitua os ficheiros em images/ mantendo o nome. Fotos dos espaços: images/espaco-*.jpg
+- WhatsApp: usa o número de config.js.
+- Redes sociais: no fim do index.html, SOCIAL={Instagram:'link',...}
+- Os cartazes (imagens) antigos ainda trazem logos de M-Ticket/CDM desenhados dentro da imagem;
+  para os tirar é preciso trocar a imagem do cartaz.
